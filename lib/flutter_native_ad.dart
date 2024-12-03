@@ -37,7 +37,6 @@ class FlutterNativeAd {
       Function(Ad ad, LoadAdError error)? onAdFailedToLoad}) {
     nativeAd = NativeAd(
       adUnitId: adUnitId ?? 'ca-app-pub-3940256099942544/2247696110',
-      // AdHelper.nativeAdUnitId ?? "ca-app-pub-3940256099942544/2247696110",
       factoryId: 'listTile',
       request: const AdRequest(),
       listener: NativeAdListener(

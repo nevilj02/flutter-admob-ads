@@ -9,7 +9,7 @@ class FlutterAdOpenAd {
     required FullScreenAdLoadErrorCallback onAdFailedToLoad,
   }) {
     AppOpenAd.load(
-      adUnitId: adUnitId ?? "ca-app-pub-3940256099942544/3419835294",
+      adUnitId: adUnitId ?? "ca-app-pub-3940256099942544/9257395921",
       request: const AdRequest(),
       adLoadCallback: AppOpenAdLoadCallback(
           onAdLoaded: onAdLoaded, onAdFailedToLoad: onAdFailedToLoad),
