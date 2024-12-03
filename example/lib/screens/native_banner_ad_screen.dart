@@ -19,7 +19,7 @@ class _NativeBannerAdScreenState extends State<NativeBannerAdScreen> {
 
   loadAd() async {
     await _ad.loadNativeBannerAd(
-      adUnitId: "Your Native Banner Ad ID",
+      adUnitId: "ca-app-pub-3940256099942544/2247696110",
       onAdLoaded: (ad) {
         isNativeAdReady = true;
         setState(() => "");

@@ -18,7 +18,7 @@ class _NativeMediumAdScreenState extends State<NativeMediumAdScreen> {
   }
 
   loadAd() async {
-    await _ad.loadmediumNativeAd(
+    await _ad.loadmediumNativeAd(adUnitId: 'ca-app-pub-3940256099942544/1044960115',
       onAdLoaded: (ad) {
         isMediumNativeAdReady = true;
         setState(() => "");
