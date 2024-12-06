@@ -54,174 +54,21 @@ Android: ca-app-pub-3940256099942544~3347511713
 First thing to do before attempting to show any ads is to initialize the plugin. You can do this in the earliest starting point of your app, your `main` function:
 
 ```dart
-import 'package:admob_flutter/admob_flutter.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  // Initialize without device test ids.
-  FlutterNativeAd.init();
-  // Or add a list of test ids.
-  // FlutterNativeAd.init(testDeviceIds: ['YOUR DEVICE ID']);
-}
-```
-
-### Banner Ad
-```dart
-final _adBanner = FlutterBannerAd();
-var isBannerAdReady = false;
-
-// load banner ad request in initState
- await _adBanner.loadBannerAd(adUnitId: "Your Banner ID",
-      onAdLoaded: (_) {
-        isBannerAdReady = true;
-        setState(()=>"");
-      },
-      onAdFailedToLoad: (ad, err) {
-        print('Failed to load a banner ad: ${err.message}');
-        isBannerAdReady = false;
-        ad.dispose();
-      },
-    );
-
-// show banner ad widget in UI anywhere you want!
-
-Container(height: 50,child: isBannerAdReady ?_adBanner.getBannerAd() : SizedBox.shrink())
-```
-
-### Interstitial Ad
-```dart
-  bool isInterstitialAdReady = false;
-  final _interstitialAd = FlutterInterstitialAd();
-
-// load interstitial ad request in initState
- await _interstitialAd.loadInterstitialAd(
-      adUnitId: "Your Interstitial Ad ID",
-      onAdLoaded: (ad) {
-      _interstitialAd.interstitialAd = ad;
-      isInterstitialAdReady = true;
+  
+  GAService.askConsent(
+    isDebug: true,
+    debugGeography: DebugLocation.debugGeographyEea,
+    testIds: ['8632117E8B093EC69374D08607E50253'],
+    onConsentUpdate: () => GAService.init(
+        videoNativeAdId: 'ca-app-pub-3940256099942544/1044960115'),
+    onError: (error) {
+      print('error -> $error');
+      GAService.init(
+          videoNativeAdId: 'ca-app-pub-3940256099942544/1044960115');
     },
-      onAdFailedToLoad: (err) {
-        print('Failed to load an interstitial ad: ${err.message}');
-        isInterstitialAdReady = false;
-        _loadInterStitialAd();
-      },
-    );
-
-// show interstitial ad anywhere you want!
-
- if(isInterstitialAdReady){
-   await _interstitialAd.interstitialAd?.show();
- }
-```
-
-### App Open Ad
-```dart
-  bool isAppOpenAdAdReady = false;
-  final _adOpenAd = FlutterAdOpenAd();
-
-// load app open ad request in initState
-    await _adOpenAd.loadAppOpenAd(
-      adUnitId: "Your Open Ad ID",
-      onAdLoaded:(ad) {
-        print('$ad loaded');
-        _adOpenAd.appOpenAd = ad;
-        isAppOpenAdAdReady = true;
-      },
-      onAdFailedToLoad:   (error) {
-        isAppOpenAdAdReady = false;
-        print('AppOpenAd failed to load: $error');
-        loadAd();
-      },
-    );
-
-// show app open ad anywhere you want!
-
- if(isAppOpenAdAdReady){
-   await _adOpenAd.appOpenAd?.show();
- }
-```
-
-### Medium Native Ad
-```dart
-  bool isMediumNativeAdReady = false;
-  final _ad = FlutterNativeAd();
-
-// load medium native ad request in initState
-await _ad.loadmediumNativeAd(
-      adUnitId: "Your Native Ad ID",
-      onAdLoaded: (ad) {
-        isMediumNativeAdReady = true;
-        setState(()=>"");
-      },
-      onAdFailedToLoad:(ad, error) {
-        _ad.loadmediumNativeAd();
-        isMediumNativeAdReady = false;
-        ad.dispose();
-        print('Ad load failed (code=${error.code} message=${error.message})');
-      },
-    );
-
-// show medium native ad widget in UI anywhere you want!
-
-Container(height: 255,child: isMediumNativeAdReady ?_ad.getMediumNativeAD() : SizedBox.shrink())
-```
-
-### Native Banner Ad
-```dart
-   bool isNativeAdReady = false;
-  final _ad = FlutterNativeAd();
-
-// load native banner ad request in initState
-    await _ad.loadNativeBannerAd(
-      adUnitId: "Your Native Banner Ad ID",
-      onAdLoaded: (ad) {
-        isNativeAdReady = true;
-        setState(()=>"");
-      },
-      onAdFailedToLoad:(ad, error) {
-        _ad.loadNativeBannerAd();
-        isNativeAdReady = false;
-        ad.dispose();
-        print('Ad load failed (code=${error.code} message=${error.message})');
-      },
-    );
-
-// show native banner ad widget in UI anywhere you want!
-
-Container(height: 102,child: isNativeAdReady?_ad.getnativeBannerAD() :SizedBox.shrink())
-```
-
-### Rewarded Ad
-```dart
-  final _rewardedAd = FlutterRewardedAd();
-  bool isRewardedAdReady = false;
-
-// load rewarded ad request in initState
-  await _rewardedAd.loadRewardedAd(
-      adUnitId: "Your Rewarded Ad ID",
-      onAdLoaded: ( ad) {
-        _rewardedAd.rewardedAd = ad;
-        isRewardedAdReady = true;
-      },
-      onAdFailedToLoad: (error) {
-        print('Failed to load a rewarded ad: ${error.message}');
-        isRewardedAdReady = false;
-        loadAds();
-      },
-    );
-
-// show rewarded ad anywhere you want!
-
- if(isRewardedAdReady){
-   await _rewardedAd.rewardedAd.show(onUserEarnedReward: (ad, reward) {});
- }
-```
-
-### Native Video Ad
-```dart
- final _ad = FlutterNativeAd();
-
-// sshow video native ad widget in UI anywhere you want!
-
-Container(height: 255,child:  _ad.addVideoNativeAD(context))
+  );
+}
 ```
