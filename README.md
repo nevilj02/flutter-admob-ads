@@ -1,8 +1,8 @@
-# flutter_native_ad
+# ga_native_ad
 
-[![Pub Version](https://img.shields.io/pub/v/flutter_native_ad.svg)](https://pub.dev/packages/flutter_native_ad)
+[![Pub Version](https://img.shields.io/pub/v/ga_native_ad.svg)](https://pub.dev/packages/ga_native_ad)
 
-The `flutter_native_ad` package is a powerful and easy-to-use Flutter plugin for integrating a variety of ad formats into your Flutter applications. This plugin supports banner ads, interstitial ads, rewarded ads, app open ads, native medium ads, native banner ads, and video native ads. It's designed to provide seamless ad experiences while maximizing your app's revenue.
+The `ga_native_ad` package is a powerful and easy-to-use Flutter plugin for integrating a variety of ad formats into your Flutter applications. This plugin supports banner ads, interstitial ads, rewarded ads, app open ads, native medium ads, native banner ads, and video native ads. It's designed to provide seamless ad experiences while maximizing your app's revenue.
 
 ## Features
 
@@ -16,11 +16,11 @@ The `flutter_native_ad` package is a powerful and easy-to-use Flutter plugin for
 
 ## Installation
 
-Add `flutter_native_ad` as a dependency in your `pubspec.yaml` file:
+Add `ga_native_ad` as a dependency in your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  flutter_native_ad: ^latest_version
+  ga_native_ad: ^latest_version
 ```
 
 - Install it - You can install packages from the command line:

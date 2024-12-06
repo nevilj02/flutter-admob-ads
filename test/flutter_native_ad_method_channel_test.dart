@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_native_ad/flutter_native_ad_method_channel.dart';
+import 'package:ga_native_ad/ga_native_ad_method_channel.dart';
 
 void main() {
-  MethodChannelFlutterNativeAd platform = MethodChannelFlutterNativeAd();
-  // const MethodChannel channel = MethodChannel('flutter_native_ad');
+  MethodChannelGANativeAd platform = MethodChannelGANativeAd();
+  // const MethodChannel channel = MethodChannel('ga_native_ad');
 
   TestWidgetsFlutterBinding.ensureInitialized();
 

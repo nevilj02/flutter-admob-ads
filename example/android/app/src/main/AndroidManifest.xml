@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.flutter_native_ad_example">
+    package="com.example.ga_native_ad_example">
    <application
-        android:label="flutter_native_ad_example"
+        android:label="ga_native_ad_example"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -1,4 +1,4 @@
-package com.example.flutter_native_ad;
+package com.example.ga_native_ad;
 
 import android.app.Activity;
 import android.content.Context;
@@ -29,7 +29,7 @@ import io.flutter.plugins.googlemobileads.GoogleMobileAdsPlugin;
 
 
 /** FlutterNativeAdPlugin */
-public class FlutterNativeAdPlugin implements FlutterPlugin, MethodCallHandler {
+public class GANativeAdPlugin implements FlutterPlugin, MethodCallHandler {
   /// The MethodChannel that will the communication between Flutter and native Android
   ///
   /// This local reference serves to register the plugin with the Flutter Engine and unregister it
@@ -46,7 +46,7 @@ public class FlutterNativeAdPlugin implements FlutterPlugin, MethodCallHandler {
 
   @Override
   public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
-    channel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "flutter_native_ad");
+    channel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "ga_native_ad");
     channel.setMethodCallHandler(this);
     context = flutterPluginBinding.getApplicationContext();
     flutterEngine = flutterPluginBinding.getFlutterEngine();

@@ -1,4 +1,4 @@
-group 'com.example.flutter_native_ad'
+group 'com.example.ga_native_ad'
 version '1.0'
 
 buildscript {
@@ -23,7 +23,7 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
-    namespace "com.example.flutter_native_ad"
+    namespace "com.example.ga_native_ad"
     compileSdkVersion 31
 
     compileOptions {

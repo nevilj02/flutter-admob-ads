@@ -1,4 +1,4 @@
-package com.example.flutter_native_ad;
+package com.example.ga_native_ad;
 
 import android.content.Context;
 import android.view.LayoutInflater;

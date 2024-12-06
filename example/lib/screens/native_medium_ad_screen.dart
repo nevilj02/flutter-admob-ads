@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_native_ad/flutter_native_ad.dart';
+import 'package:ga_native_ad/ga_native_ad.dart';
 
 class NativeMediumAdScreen extends StatefulWidget {
   const NativeMediumAdScreen({Key? key}) : super(key: key);
@@ -10,7 +10,8 @@ class NativeMediumAdScreen extends StatefulWidget {
 
 class _NativeMediumAdScreenState extends State<NativeMediumAdScreen> {
   bool isMediumNativeAdReady = false;
-  final _ad = FlutterNativeAd();
+  final _ad = GANativeAd();
+
   @override
   void initState() {
     super.initState();
@@ -18,13 +19,13 @@ class _NativeMediumAdScreenState extends State<NativeMediumAdScreen> {
   }
 
   loadAd() async {
-    await _ad.loadmediumNativeAd(adUnitId: 'ca-app-pub-3940256099942544/1044960115',
+    await _ad.loadMediumAd(
+      adUnitId: 'ca-app-pub-3940256099942544/1044960115',
       onAdLoaded: (ad) {
         isMediumNativeAdReady = true;
         setState(() => "");
       },
       onAdFailedToLoad: (ad, error) {
-        _ad.loadmediumNativeAd();
         isMediumNativeAdReady = false;
         ad.dispose();
         print('Ad load failed (code=${error.code} message=${error.message})');
@@ -42,7 +43,7 @@ class _NativeMediumAdScreenState extends State<NativeMediumAdScreen> {
             Container(
                 height: 255,
                 child: isMediumNativeAdReady
-                    ? _ad.getMediumNativeAD()
+                    ? _ad.getMediumAd()
                     : SizedBox.shrink())
           ],
         ),

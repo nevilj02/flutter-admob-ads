@@ -1,6 +1,6 @@
-# flutter_native_ad_example
+# ga_native_ad_example
 
-Demonstrates how to use the flutter_native_ad plugin.
+Demonstrates how to use the ga_native_ad plugin.
 
 ## Getting Started
 

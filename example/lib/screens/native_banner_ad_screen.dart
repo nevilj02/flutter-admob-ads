@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_native_ad/flutter_native_ad.dart';
+import 'package:ga_native_ad/ga_native_ad.dart';
 
 class NativeBannerAdScreen extends StatefulWidget {
   const NativeBannerAdScreen({Key? key}) : super(key: key);
@@ -10,7 +10,7 @@ class NativeBannerAdScreen extends StatefulWidget {
 
 class _NativeBannerAdScreenState extends State<NativeBannerAdScreen> {
   bool isNativeAdReady = false;
-  final _ad = FlutterNativeAd();
+  final _ad = GANativeAd();
   @override
   void initState() {
     super.initState();
@@ -18,14 +18,13 @@ class _NativeBannerAdScreenState extends State<NativeBannerAdScreen> {
   }
 
   loadAd() async {
-    await _ad.loadNativeBannerAd(
+    await _ad.loadSmallAd(
       adUnitId: "ca-app-pub-3940256099942544/2247696110",
       onAdLoaded: (ad) {
         isNativeAdReady = true;
         setState(() => "");
       },
       onAdFailedToLoad: (ad, error) {
-        _ad.loadNativeBannerAd();
         isNativeAdReady = false;
         ad.dispose();
         print('Ad load failed (code=${error.code} message=${error.message})');
@@ -43,7 +42,7 @@ class _NativeBannerAdScreenState extends State<NativeBannerAdScreen> {
             Container(
                 height: 102,
                 child: isNativeAdReady
-                    ? _ad.getnativeBannerAD()
+                    ? _ad.getSmallAd()
                     : SizedBox.shrink())
           ],
         ),

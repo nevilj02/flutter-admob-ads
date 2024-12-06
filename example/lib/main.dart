@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_native_ad/flutter_native_ad.dart';
+import 'package:ga_native_ad/ga_native_ad.dart';
 import 'screens/home_screen.dart';
 
 void main() {
@@ -16,7 +16,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void initState() {
-    FlutterNativeAd.init();
+    GANativeAd.init(videoNativeAdId: 'ca-app-pub-3940256099942544/1044960115');
     super.initState();
   }
 

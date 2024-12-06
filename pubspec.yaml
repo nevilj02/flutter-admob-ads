@@ -1,8 +1,6 @@
-name: flutter_native_ad
+name: ga_native_ad
 description: Flutter Native Ads Plugin is Allow Show All Types of Ads in One Package.
 version: 1.0.0
-homepage: https://github.com/Khuntarpit/flutter_native_ad
-repository: https://github.com/Khuntarpit/flutter_native_ad
 
 environment:
   sdk: ">=2.17.1 <4.0.0"
@@ -12,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   plugin_platform_interface: ^2.1.8
-  google_mobile_ads: ^5.1.0
+  google_mobile_ads: ^5.2.0
 
 
 dev_dependencies:
@@ -38,10 +36,10 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.example.flutter_native_ad
-        pluginClass: FlutterNativeAdPlugin
+        package: com.example.ga_native_ad
+        pluginClass: GANativeAdPlugin
       ios:
-        pluginClass: FlutterNativeAdPlugin
+        pluginClass: GANativeAdPlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
