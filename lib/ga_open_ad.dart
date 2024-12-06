@@ -57,4 +57,6 @@ class GAAppOpenAd {
       onAdDismissedFullScreenContent?.call();
     }
   }
+
+  static bool get isAdAvailable => _appOpenAd != null;
 }
