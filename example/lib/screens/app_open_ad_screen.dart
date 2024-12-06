@@ -10,7 +10,6 @@ class AppOpenAdScreen extends StatefulWidget {
 
 class _AppOpenAdScreenState extends State<AppOpenAdScreen> {
   bool isAppOpenAdAdReady = false;
-  final _adOpenAd = GAAppOpenAd();
 
   @override
   void initState() {
@@ -19,7 +18,7 @@ class _AppOpenAdScreenState extends State<AppOpenAdScreen> {
   }
 
   loadAd() async {
-    await _adOpenAd.loadAd(
+    await GAAppOpenAd.loadAd(
       adUnitId: 'ca-app-pub-3940256099942544/9257395921',
       onAdLoaded: (ad) {
         print('$ad loaded');
@@ -41,7 +40,7 @@ class _AppOpenAdScreenState extends State<AppOpenAdScreen> {
         child: ElevatedButton(
             onPressed: () async {
               isAppOpenAdAdReady
-                  ? await _adOpenAd.show(
+                  ? await GAAppOpenAd.show(
                       onAdFailedToShowFullScreenContent: (ad, error) {
                       loadAd();
                     }, onAdDismissedFullScreenContent: () {

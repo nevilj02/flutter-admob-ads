@@ -10,7 +10,6 @@ class InterstitialAdScreen extends StatefulWidget {
 
 class _InterstitialAdScreenState extends State<InterstitialAdScreen> {
   bool isInterstitialAdReady = false;
-  final _interstitialAd = GAInterstitialAd();
 
   @override
   void initState() {
@@ -23,7 +22,7 @@ class _InterstitialAdScreenState extends State<InterstitialAdScreen> {
   }
 
   _loadInterstitialAd() async {
-    await _interstitialAd.loadAd(
+    await GAInterstitialAd.loadAd(
       adUnitId: 'ca-app-pub-3940256099942544/1033173712',
       onAdLoaded: (ad) {
         isInterstitialAdReady = true;
@@ -46,7 +45,7 @@ class _InterstitialAdScreenState extends State<InterstitialAdScreen> {
             ElevatedButton(
                 onPressed: () async {
                   isInterstitialAdReady
-                      ? await _interstitialAd.show(
+                      ? await GAInterstitialAd.show(
                           onAdDismissedFullScreenContent: () {
                           _loadInterstitialAd();
                         }, onAdFailedToShowFullScreenContent: (ad, error) {

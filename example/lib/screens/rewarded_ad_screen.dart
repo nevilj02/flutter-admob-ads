@@ -9,7 +9,6 @@ class RewardedAdScreen extends StatefulWidget {
 }
 
 class _RewardedAdScreenState extends State<RewardedAdScreen> {
-  final _rewardedAd = GARewardedAd();
   bool isRewardedAdReady = false;
 
   @override
@@ -19,7 +18,7 @@ class _RewardedAdScreenState extends State<RewardedAdScreen> {
   }
 
   loadAds() async {
-    await _rewardedAd.loadAd(
+    await GARewardedAd.loadAd(
       adUnitId: 'ca-app-pub-3940256099942544/5224354917',
       onAdLoaded: (ad) {
         isRewardedAdReady = true;
@@ -40,7 +39,7 @@ class _RewardedAdScreenState extends State<RewardedAdScreen> {
         child: ElevatedButton(
             onPressed: () async {
               isRewardedAdReady
-                  ? await _rewardedAd.show(
+                  ? await GARewardedAd.show(
                       onAdDismissedFullScreenContent: (ad) {
                       loadAds();
                     }, onAdFailedToShowFullScreenContent: (ad, error) {

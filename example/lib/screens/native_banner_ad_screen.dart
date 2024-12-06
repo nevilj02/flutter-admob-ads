@@ -10,7 +10,6 @@ class NativeBannerAdScreen extends StatefulWidget {
 
 class _NativeBannerAdScreenState extends State<NativeBannerAdScreen> {
   bool isNativeAdReady = false;
-  final _ad = GANativeAd();
   @override
   void initState() {
     super.initState();
@@ -18,7 +17,7 @@ class _NativeBannerAdScreenState extends State<NativeBannerAdScreen> {
   }
 
   loadAd() async {
-    await _ad.loadSmallAd(
+    await GANativeAd.loadSmallAd(
       adUnitId: "ca-app-pub-3940256099942544/2247696110",
       onAdLoaded: (ad) {
         isNativeAdReady = true;
@@ -42,7 +41,7 @@ class _NativeBannerAdScreenState extends State<NativeBannerAdScreen> {
             Container(
                 height: 102,
                 child: isNativeAdReady
-                    ? _ad.getSmallAd()
+                    ? GANativeAd.getSmallAd()
                     : SizedBox.shrink())
           ],
         ),

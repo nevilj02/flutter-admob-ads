@@ -3,9 +3,9 @@ import 'package:flutter/widgets.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class GABannerAd {
-  late BannerAd bannerAd;
+  static late BannerAd bannerAd;
 
-  loadAd({
+  static loadAd({
     required String adUnitId,
     AdEventCallback? onAdLoaded,
     AdLoadErrorCallback? onAdFailedToLoad,
@@ -37,7 +37,7 @@ class GABannerAd {
     bannerAd.load();
   }
 
-  Widget getAd() {
+  static Widget getAd() {
     try {
       return AdWidget(ad: bannerAd);
     } catch (e) {

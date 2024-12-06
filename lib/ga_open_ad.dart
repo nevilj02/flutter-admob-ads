@@ -3,9 +3,9 @@ import 'dart:ui';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class GAAppOpenAd {
-  AppOpenAd? _appOpenAd;
+  static AppOpenAd? _appOpenAd;
 
-  loadAd({
+  static loadAd({
     required String adUnitId,
     required GenericAdEventCallback<AppOpenAd> onAdLoaded,
     required FullScreenAdLoadErrorCallback onAdFailedToLoad,
@@ -27,7 +27,7 @@ class GAAppOpenAd {
     );
   }
 
-  show({
+  static show({
     GenericAdEventCallback<Ad>? onAdShowedFullScreenContent,
     Function(Ad ad, AdError error)? onAdFailedToShowFullScreenContent,
     VoidCallback? onAdDismissedFullScreenContent,

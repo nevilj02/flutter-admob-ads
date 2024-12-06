@@ -9,7 +9,6 @@ class BannerAdScreen extends StatefulWidget {
 }
 
 class _BannerAdScreenState extends State<BannerAdScreen> {
-  final _adBanner = GABannerAd();
   var isBannerAdReady = false;
   @override
   void initState() {
@@ -18,7 +17,7 @@ class _BannerAdScreenState extends State<BannerAdScreen> {
   }
 
   loadAd() async {
-    await _adBanner.loadAd(
+    await GABannerAd.loadAd(
       adUnitId: 'ca-app-pub-3940256099942544/6300978111',
       onAdLoaded: (_) {
         isBannerAdReady = true;
@@ -42,7 +41,7 @@ class _BannerAdScreenState extends State<BannerAdScreen> {
             Container(
                 height: 50,
                 child: isBannerAdReady
-                    ? _adBanner.getAd()
+                    ? GABannerAd.getAd()
                     : SizedBox.shrink())
           ],
         ),

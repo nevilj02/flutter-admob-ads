@@ -3,9 +3,9 @@ import 'dart:ui';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class GAInterstitialAd {
-  InterstitialAd? _interstitialAd;
+  static InterstitialAd? _interstitialAd;
 
-  loadAd({
+  static loadAd({
     required String adUnitId,
     required GenericAdEventCallback<InterstitialAd> onAdLoaded,
     required FullScreenAdLoadErrorCallback onAdFailedToLoad,
@@ -27,7 +27,7 @@ class GAInterstitialAd {
     );
   }
 
-  show({
+  static show({
     GenericAdEventCallback<Ad>? onAdShowedFullScreenContent,
     Function(Ad ad, AdError error)? onAdFailedToShowFullScreenContent,
     VoidCallback? onAdDismissedFullScreenContent,

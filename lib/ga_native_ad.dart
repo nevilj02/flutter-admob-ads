@@ -11,8 +11,8 @@ export 'ga_open_ad.dart';
 class GANativeAd {
   GANativeAd();
 
-  late NativeAd nativeAd;
-  late NativeAd mediumNativeAd;
+  static late NativeAd _nativeAd;
+  static late NativeAd _mediumNativeAd;
 
   GANativeAd.init({required String videoNativeAdId}) {
     invokeNativeAd(videoNativeAdId: videoNativeAdId);
@@ -25,7 +25,7 @@ class GANativeAd {
     await methodChannel.invokeMethod("getNativeAds", nativeID);
   }
 
-  loadSmallAd({
+  static loadSmallAd({
     required String adUnitId,
     AdEventCallback? onAdLoaded,
     Function(Ad ad, LoadAdError error)? onAdFailedToLoad,
@@ -36,7 +36,7 @@ class GANativeAd {
     AdEventCallback? onAdWillDismissScreen,
     OnPaidEventCallback? onPaidEvent,
   }) {
-    nativeAd = NativeAd(
+    _nativeAd = NativeAd(
       adUnitId: adUnitId,
       factoryId: 'listTile',
       request: const AdRequest(),
@@ -52,10 +52,10 @@ class GANativeAd {
       ),
     );
 
-    nativeAd.load();
+    _nativeAd.load();
   }
 
-  loadMediumAd({
+  static loadMediumAd({
     required String adUnitId,
     AdEventCallback? onAdLoaded,
     Function(Ad ad, LoadAdError error)? onAdFailedToLoad,
@@ -66,7 +66,7 @@ class GANativeAd {
     AdEventCallback? onAdWillDismissScreen,
     OnPaidEventCallback? onPaidEvent,
   }) {
-    mediumNativeAd = NativeAd(
+    _mediumNativeAd = NativeAd(
       adUnitId: adUnitId,
       factoryId: 'listTileMedium',
       request: const AdRequest(),
@@ -81,12 +81,12 @@ class GANativeAd {
         onPaidEvent: onPaidEvent,
       ),
     );
-    mediumNativeAd.load();
+    _mediumNativeAd.load();
   }
 
-  Widget getSmallAd() {
+  static Widget getSmallAd() {
     try {
-      return AdWidget(ad: nativeAd);
+      return AdWidget(ad: _nativeAd);
     } catch (e) {
       return Container(
         height: 60,
@@ -99,9 +99,9 @@ class GANativeAd {
     }
   }
 
-  Widget getMediumAd() {
+  static Widget getMediumAd() {
     try {
-      return AdWidget(ad: mediumNativeAd);
+      return AdWidget(ad: _mediumNativeAd);
     } catch (e) {
       return Container(
         height: 60,
