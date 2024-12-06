@@ -106,14 +106,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
-  gma_mediation_ironsource:
-    dependency: transitive
-    description:
-      name: gma_mediation_ironsource
-      sha256: "6fb1eff6b06b1b61486b75ee16a884bea819191a8888c186dd455b7ca6789c38"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.0"
   gma_mediation_liftoffmonetize:
     dependency: transitive
     description:
@@ -130,22 +122,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.1"
-  gma_mediation_mintegral:
-    dependency: transitive
-    description:
-      name: gma_mediation_mintegral
-      sha256: "2fb65e5f07f47531fa981704a7692f36c7ef007016119d3d444a6e0b236e9f30"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.0"
-  gma_mediation_pangle:
-    dependency: transitive
-    description:
-      name: gma_mediation_pangle
-      sha256: "83bd689f3fcac57d60ee72f0ae580255cd6536427496d2e5346c4d29e33c463e"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.0"
   gma_mediation_unity:
     dependency: transitive
     description:

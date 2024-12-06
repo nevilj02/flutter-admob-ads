@@ -46,19 +46,13 @@ class _InterstitialAdScreenState extends State<InterstitialAdScreen> {
             ElevatedButton(
                 onPressed: () async {
                   isInterstitialAdReady
-                      ? await _interstitialAd.show()
+                      ? await _interstitialAd.show(
+                          onAdDismissedFullScreenContent: () {
+                          _loadInterstitialAd();
+                        }, onAdFailedToShowFullScreenContent: (ad, error) {
+                          _loadInterstitialAd();
+                        })
                       : null;
-
-                  _interstitialAd.setDisplayCallback(
-                      onAdDismissedFullScreenContent: (ad) {
-                    print('$ad onAdDismissedFullScreenContent.');
-                    ad.dispose();
-                    _loadInterstitialAd();
-                  }, onAdFailedToShowFullScreenContent: (ad, error) {
-                    print('$ad onAdFailedToShowFullScreenContent: $error');
-                    ad.dispose();
-                    _loadInterstitialAd();
-                  });
                 },
                 child: const Text("InterstitialAd")),
           ],

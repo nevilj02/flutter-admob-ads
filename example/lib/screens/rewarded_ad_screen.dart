@@ -40,21 +40,15 @@ class _RewardedAdScreenState extends State<RewardedAdScreen> {
         child: ElevatedButton(
             onPressed: () async {
               isRewardedAdReady
-                  ? await _rewardedAd.show(onUserEarnedReward: (ad, reward) {
+                  ? await _rewardedAd.show(
+                      onAdDismissedFullScreenContent: (ad) {
+                      loadAds();
+                    }, onAdFailedToShowFullScreenContent: (ad, error) {
+                      loadAds();
+                    }, onUserEarnedReward: (ad, reward) {
                       loadAds();
                     })
                   : null;
-
-              _rewardedAd.setDisplayCallback(
-                  onAdDismissedFullScreenContent: (ad) {
-                print('$ad onAdDismissedFullScreenContent.');
-                ad.dispose();
-                loadAds();
-              }, onAdFailedToShowFullScreenContent: (ad, error) {
-                print('$ad onAdFailedToShowFullScreenContent: $error');
-                ad.dispose();
-                loadAds();
-              });
             },
             child: const Text("RewardedAd")),
       ),

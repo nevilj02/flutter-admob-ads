@@ -5,10 +5,12 @@ class InterstitialRewardedAdScreen extends StatefulWidget {
   const InterstitialRewardedAdScreen({Key? key}) : super(key: key);
 
   @override
-  State<InterstitialRewardedAdScreen> createState() => _InterstitialRewardedAdScreenState();
+  State<InterstitialRewardedAdScreen> createState() =>
+      _InterstitialRewardedAdScreenState();
 }
 
-class _InterstitialRewardedAdScreenState extends State<InterstitialRewardedAdScreen> {
+class _InterstitialRewardedAdScreenState
+    extends State<InterstitialRewardedAdScreen> {
   bool isInterstitialAdReady = false;
   bool isRewardedInterstitialAdReady = false;
   final _interstitialAd = GAInterstitialRewardedAd();
@@ -22,7 +24,6 @@ class _InterstitialRewardedAdScreenState extends State<InterstitialRewardedAdScr
   loadAds() async {
     await _loadRewardedInterstitialAd();
   }
-
 
   _loadRewardedInterstitialAd() async {
     await _interstitialAd.loadAd(
@@ -49,21 +50,14 @@ class _InterstitialRewardedAdScreenState extends State<InterstitialRewardedAdScr
                 onPressed: () async {
                   isRewardedInterstitialAdReady
                       ? await _interstitialAd.show(
-                      onUserEarnedReward: (ad, reward) {
-                        _loadRewardedInterstitialAd();
-                      })
+                          onAdDismissedFullScreenContent: (ad) {
+                          _loadRewardedInterstitialAd();
+                        }, onAdFailedToShowFullScreenContent: (ad, error) {
+                          _loadRewardedInterstitialAd();
+                        }, onUserEarnedReward: (ad, reward) {
+                          _loadRewardedInterstitialAd();
+                        })
                       : null;
-
-                  _interstitialAd.setDisplayCallback(
-                      onAdDismissedFullScreenContent: (ad) {
-                        print('$ad onAdDismissedFullScreenContent.');
-                        ad.dispose();
-                        _loadRewardedInterstitialAd();
-                      }, onAdFailedToShowFullScreenContent: (ad, error) {
-                    print('$ad onAdFailedToShowFullScreenContent: $error');
-                    ad.dispose();
-                    _loadRewardedInterstitialAd();
-                  });
                 },
                 child: const Text("RewardedInterstitialAd")),
           ],

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class GARewardedAd {
@@ -25,35 +27,38 @@ class GARewardedAd {
     );
   }
 
-  setDisplayCallback({
+  show({
     GenericAdEventCallback<Ad>? onAdShowedFullScreenContent,
     Function(Ad ad, AdError error)? onAdFailedToShowFullScreenContent,
     GenericAdEventCallback<Ad>? onAdDismissedFullScreenContent,
     GenericAdEventCallback<Ad>? onAdImpression,
     GenericAdEventCallback<Ad>? onAdClicked,
     GenericAdEventCallback<Ad>? onAdWillDismissFullScreenContent,
+    required OnUserEarnedRewardCallback onUserEarnedReward,
+    VoidCallback? onAdNull,
   }) {
-    _rewardedAd?.fullScreenContentCallback = FullScreenContentCallback(
-      onAdShowedFullScreenContent: onAdShowedFullScreenContent,
-      onAdFailedToShowFullScreenContent: (ad, error) {
-        _rewardedAd?.dispose();
-        _rewardedAd = null;
-        onAdFailedToShowFullScreenContent?.call(ad, error);
-      },
-      onAdDismissedFullScreenContent: (ad) {
-        _rewardedAd?.dispose();
-        _rewardedAd = null;
-        onAdDismissedFullScreenContent?.call(ad);
-      },
-      onAdImpression: onAdImpression,
-      onAdClicked: onAdClicked,
-      onAdWillDismissFullScreenContent: onAdWillDismissFullScreenContent,
-    );
-  }
-
-  show({required OnUserEarnedRewardCallback onUserEarnedReward}) {
-    _rewardedAd?.show(
-      onUserEarnedReward: onUserEarnedReward,
-    );
+    if (_rewardedAd != null) {
+      _rewardedAd?.fullScreenContentCallback = FullScreenContentCallback(
+        onAdShowedFullScreenContent: onAdShowedFullScreenContent,
+        onAdFailedToShowFullScreenContent: (ad, error) {
+          _rewardedAd?.dispose();
+          _rewardedAd = null;
+          onAdFailedToShowFullScreenContent?.call(ad, error);
+        },
+        onAdDismissedFullScreenContent: (ad) {
+          _rewardedAd?.dispose();
+          _rewardedAd = null;
+          onAdDismissedFullScreenContent?.call(ad);
+        },
+        onAdImpression: onAdImpression,
+        onAdClicked: onAdClicked,
+        onAdWillDismissFullScreenContent: onAdWillDismissFullScreenContent,
+      );
+      _rewardedAd?.show(
+        onUserEarnedReward: onUserEarnedReward,
+      );
+    } else {
+      onAdNull?.call();
+    }
   }
 }

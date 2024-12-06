@@ -40,20 +40,15 @@ class _AppOpenAdScreenState extends State<AppOpenAdScreen> {
       body: Center(
         child: ElevatedButton(
             onPressed: () async {
-              isAppOpenAdAdReady ? await _adOpenAd.show() : null;
+              isAppOpenAdAdReady
+                  ? await _adOpenAd.show(
+                      onAdFailedToShowFullScreenContent: (ad, error) {
+                      loadAd();
+                    }, onAdDismissedFullScreenContent: () {
+                      loadAd();
+                    })
+                  : null;
               loadAd();
-              _adOpenAd.setDisplayCallback(
-                onAdFailedToShowFullScreenContent: (ad, error) {
-                  print('$ad onAdFailedToShowFullScreenContent: $error');
-                  ad.dispose();
-                  loadAd();
-                },
-                onAdDismissedFullScreenContent: (ad) {
-                  print('$ad onAdDismissedFullScreenContent');
-                  ad.dispose();
-                  loadAd();
-                },
-              );
             },
             child: const Text("AdOpenAd")),
       ),

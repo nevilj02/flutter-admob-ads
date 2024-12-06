@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class GAAppOpenAd {
@@ -25,33 +27,34 @@ class GAAppOpenAd {
     );
   }
 
-  setDisplayCallback({
+  show({
     GenericAdEventCallback<Ad>? onAdShowedFullScreenContent,
     Function(Ad ad, AdError error)? onAdFailedToShowFullScreenContent,
-    GenericAdEventCallback<Ad>? onAdDismissedFullScreenContent,
+    VoidCallback? onAdDismissedFullScreenContent,
     GenericAdEventCallback<Ad>? onAdImpression,
     GenericAdEventCallback<Ad>? onAdClicked,
     GenericAdEventCallback<Ad>? onAdWillDismissFullScreenContent,
   }) {
-    _appOpenAd?.fullScreenContentCallback = FullScreenContentCallback(
-      onAdShowedFullScreenContent: onAdShowedFullScreenContent,
-      onAdFailedToShowFullScreenContent: (ad, error) {
-        _appOpenAd?.dispose();
-        _appOpenAd = null;
-        onAdFailedToShowFullScreenContent?.call(ad, error);
-      },
-      onAdDismissedFullScreenContent: (ad) {
-        _appOpenAd?.dispose();
-        _appOpenAd = null;
-        onAdDismissedFullScreenContent?.call(ad);
-      },
-      onAdImpression: onAdImpression,
-      onAdClicked: onAdClicked,
-      onAdWillDismissFullScreenContent: onAdWillDismissFullScreenContent,
-    );
-  }
-
-  show() {
-    _appOpenAd?.show();
+    if (_appOpenAd != null) {
+      _appOpenAd?.fullScreenContentCallback = FullScreenContentCallback(
+        onAdShowedFullScreenContent: onAdShowedFullScreenContent,
+        onAdFailedToShowFullScreenContent: (ad, error) {
+          _appOpenAd?.dispose();
+          _appOpenAd = null;
+          onAdFailedToShowFullScreenContent?.call(ad, error);
+        },
+        onAdDismissedFullScreenContent: (ad) {
+          _appOpenAd?.dispose();
+          _appOpenAd = null;
+          onAdDismissedFullScreenContent?.call();
+        },
+        onAdImpression: onAdImpression,
+        onAdClicked: onAdClicked,
+        onAdWillDismissFullScreenContent: onAdWillDismissFullScreenContent,
+      );
+      _appOpenAd?.show();
+    } else {
+      onAdDismissedFullScreenContent?.call();
+    }
   }
 }
