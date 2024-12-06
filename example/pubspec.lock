@@ -82,6 +82,78 @@ packages:
       relative: true
     source: path
     version: "1.0.0"
+  gma_mediation_applovin:
+    dependency: transitive
+    description:
+      name: gma_mediation_applovin
+      sha256: "2d10da7501ae9e036366f25f0330fda948c817002cffedad52ce03d9c3a1635c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.0"
+  gma_mediation_dtexchange:
+    dependency: transitive
+    description:
+      name: gma_mediation_dtexchange
+      sha256: "1c8b430e733080ad38d15437ca139f8147f939634a25784e7b91216a34ce71e7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
+  gma_mediation_inmobi:
+    dependency: transitive
+    description:
+      name: gma_mediation_inmobi
+      sha256: bb42aa60c656903c0db2632b7c5c38706d8a9a55326a08a36f784ee75d588790
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
+  gma_mediation_ironsource:
+    dependency: transitive
+    description:
+      name: gma_mediation_ironsource
+      sha256: "6fb1eff6b06b1b61486b75ee16a884bea819191a8888c186dd455b7ca6789c38"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
+  gma_mediation_liftoffmonetize:
+    dependency: transitive
+    description:
+      name: gma_mediation_liftoffmonetize
+      sha256: ff8a70eb2055607dd1589a86d35e0cd749bdad5f655497f5435e33dcd58d17ed
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
+  gma_mediation_meta:
+    dependency: transitive
+    description:
+      name: gma_mediation_meta
+      sha256: fdaee3eca75ec0257a214787a14a0c0b111976c94684c9aacbe9444734867d2b
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
+  gma_mediation_mintegral:
+    dependency: transitive
+    description:
+      name: gma_mediation_mintegral
+      sha256: "2fb65e5f07f47531fa981704a7692f36c7ef007016119d3d444a6e0b236e9f30"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
+  gma_mediation_pangle:
+    dependency: transitive
+    description:
+      name: gma_mediation_pangle
+      sha256: "83bd689f3fcac57d60ee72f0ae580255cd6536427496d2e5346c4d29e33c463e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
+  gma_mediation_unity:
+    dependency: transitive
+    description:
+      name: gma_mediation_unity
+      sha256: dafc188a17278ff5741a28c9b6eed33b4b1dd0267c4336cd39dff2844bdc5026
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
   google_mobile_ads:
     dependency: transitive
     description:
