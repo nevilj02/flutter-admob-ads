@@ -14,6 +14,8 @@ class _InterstitialRewardedAdScreenState
   bool isInterstitialAdReady = false;
   bool isRewardedInterstitialAdReady = false;
 
+  GAInterstitialRewardedAd gaInterstitialRewardedAd = GAInterstitialRewardedAd();
+
   @override
   void initState() {
     super.initState();
@@ -25,7 +27,7 @@ class _InterstitialRewardedAdScreenState
   }
 
   _loadRewardedInterstitialAd() async {
-    await GAInterstitialRewardedAd.loadAd(
+    await gaInterstitialRewardedAd.loadAd(
       adUnitId: 'ca-app-pub-3940256099942544/5354046379',
       onAdLoaded: (ad) {
         isRewardedInterstitialAdReady = true;
@@ -48,7 +50,7 @@ class _InterstitialRewardedAdScreenState
             ElevatedButton(
                 onPressed: () async {
                   isRewardedInterstitialAdReady
-                      ? await GAInterstitialRewardedAd.show(
+                      ? await gaInterstitialRewardedAd.show(
                           onAdDismissedFullScreenContent: (ad) {
                           _loadRewardedInterstitialAd();
                         }, onAdFailedToShowFullScreenContent: (ad, error) {

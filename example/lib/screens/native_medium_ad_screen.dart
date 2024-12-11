@@ -11,6 +11,8 @@ class NativeMediumAdScreen extends StatefulWidget {
 class _NativeMediumAdScreenState extends State<NativeMediumAdScreen> {
   bool isMediumNativeAdReady = false;
 
+  GANativeAd gaNativeAd = GANativeAd();
+
   @override
   void initState() {
     super.initState();
@@ -18,7 +20,7 @@ class _NativeMediumAdScreenState extends State<NativeMediumAdScreen> {
   }
 
   loadAd() async {
-    await GANativeAd.loadMediumAd(
+    await gaNativeAd.loadMediumAd(
       adUnitId: 'ca-app-pub-3940256099942544/1044960115',
       onAdLoaded: (ad) {
         isMediumNativeAdReady = true;
@@ -42,7 +44,7 @@ class _NativeMediumAdScreenState extends State<NativeMediumAdScreen> {
             Container(
                 height: 255,
                 child: isMediumNativeAdReady
-                    ? GANativeAd.getMediumAd()
+                    ? gaNativeAd.getMediumAd()
                     : SizedBox.shrink())
           ],
         ),

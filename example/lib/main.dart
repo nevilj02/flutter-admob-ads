@@ -17,17 +17,19 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  GAService gaService = GAService();
+
   @override
   void initState() {
-    GAService.askConsent(
+    gaService.askConsent(
       isDebug: true,
       debugGeography: DebugLocation.debugGeographyEea,
       testIds: ['8632117E8B093EC69374D08607E50253'],
-      onConsentUpdate: () => GAService.init(
+      onConsentUpdate: () => gaService.init(
           videoNativeAdId: 'ca-app-pub-3940256099942544/1044960115'),
       onError: (error) {
         print('error -> $error');
-        GAService.init(
+        gaService.init(
             videoNativeAdId: 'ca-app-pub-3940256099942544/1044960115');
       },
     );

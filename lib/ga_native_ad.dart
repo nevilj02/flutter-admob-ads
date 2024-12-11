@@ -11,8 +11,8 @@ export 'ga_open_ad.dart';
 class GANativeAd {
   GANativeAd();
 
-  static late NativeAd _nativeAd;
-  static late NativeAd _mediumNativeAd;
+  late NativeAd _nativeAd;
+  late NativeAd _mediumNativeAd;
 
   GANativeAd.init({required String videoNativeAdId}) {
     invokeNativeAd(videoNativeAdId: videoNativeAdId);
@@ -25,7 +25,7 @@ class GANativeAd {
     await methodChannel.invokeMethod("getNativeAds", nativeID);
   }
 
-  static loadSmallAd({
+  loadSmallAd({
     required String adUnitId,
     AdEventCallback? onAdLoaded,
     Function(Ad ad, LoadAdError error)? onAdFailedToLoad,
@@ -55,7 +55,7 @@ class GANativeAd {
     _nativeAd.load();
   }
 
-  static loadMediumAd({
+  loadMediumAd({
     required String adUnitId,
     AdEventCallback? onAdLoaded,
     Function(Ad ad, LoadAdError error)? onAdFailedToLoad,
@@ -84,7 +84,7 @@ class GANativeAd {
     _mediumNativeAd.load();
   }
 
-  static Widget getSmallAd() {
+  Widget getSmallAd() {
     try {
       return AdWidget(ad: _nativeAd);
     } catch (e) {
@@ -99,7 +99,7 @@ class GANativeAd {
     }
   }
 
-  static Widget getMediumAd() {
+  Widget getMediumAd() {
     try {
       return AdWidget(ad: _mediumNativeAd);
     } catch (e) {
@@ -114,13 +114,13 @@ class GANativeAd {
     }
   }
 
-  static void disposeBanner() {
+  void disposeBanner() {
     try {
       _nativeAd.dispose();
     } catch (e) {}
   }
 
-  static void disposeMedium() {
+  void disposeMedium() {
     try {
       _mediumNativeAd.dispose();
     } catch (e) {}

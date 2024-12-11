@@ -3,12 +3,12 @@ import 'package:ga_native_ad/ga_native_ad.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class GAService {
-  static void init({required String videoNativeAdId}) {
+  void init({required String videoNativeAdId}) {
     MobileAds.instance.initialize();
     GANativeAd.init(videoNativeAdId: videoNativeAdId);
   }
 
-  static void askConsent({
+  void askConsent({
     Function? onConsentUpdate,
     Function? onError,
     bool? isDebug,
@@ -41,7 +41,7 @@ class GAService {
     });
   }
 
-  static DebugGeography _getGeography(DebugLocation? location) {
+  DebugGeography _getGeography(DebugLocation? location) {
     switch (location) {
       case DebugLocation.debugGeographyEea:
         return DebugGeography.debugGeographyEea;
