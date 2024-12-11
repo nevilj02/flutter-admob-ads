@@ -61,4 +61,10 @@ class GARewardedAd {
       onAdNull?.call();
     }
   }
+
+  static void dispose() {
+    if (_rewardedAd != null) {
+      _rewardedAd!.dispose();
+    }
+  }
 }

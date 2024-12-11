@@ -57,4 +57,10 @@ class GAInterstitialAd {
       onAdDismissedFullScreenContent?.call();
     }
   }
+
+  static void dispose() {
+    if (_interstitialAd != null) {
+      _interstitialAd!.dispose();
+    }
+  }
 }

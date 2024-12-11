@@ -58,5 +58,11 @@ class GAAppOpenAd {
     }
   }
 
+  static void dispose() {
+    if (_appOpenAd != null) {
+      _appOpenAd!.dispose();
+    }
+  }
+
   static bool get isAdAvailable => _appOpenAd != null;
 }

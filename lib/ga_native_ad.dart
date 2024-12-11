@@ -114,6 +114,18 @@ class GANativeAd {
     }
   }
 
+  static void disposeBanner() {
+    try {
+      _nativeAd.dispose();
+    } catch (e) {}
+  }
+
+  static void disposeMedium() {
+    try {
+      _mediumNativeAd.dispose();
+    } catch (e) {}
+  }
+
   Widget addVideoNativeAD(BuildContext context) {
     const String viewType = '<platform-view-type>';
     final Map<String, dynamic> creationParams = <String, dynamic>{};

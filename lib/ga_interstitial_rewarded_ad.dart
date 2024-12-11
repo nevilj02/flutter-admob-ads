@@ -62,4 +62,10 @@ class GAInterstitialRewardedAd {
       onAdNull?.call();
     }
   }
+
+  static void dispose() {
+    if (_rewardedInterstitial != null) {
+      _rewardedInterstitial!.dispose();
+    }
+  }
 }

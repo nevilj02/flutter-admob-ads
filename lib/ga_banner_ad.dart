@@ -51,4 +51,10 @@ class GABannerAd {
       );
     }
   }
+
+  static void dispose() {
+    try {
+      bannerAd.dispose();
+    } catch (e) {}
+  }
 }
