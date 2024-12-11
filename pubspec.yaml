@@ -12,14 +12,14 @@ dependencies:
   plugin_platform_interface: ^2.1.8
   google_mobile_ads: ^5.2.0
   gma_mediation_meta: ^1.0.1
-  gma_mediation_applovin: ^1.2.0
-  gma_mediation_unity: ^1.1.0
+  #gma_mediation_applovin: ^1.2.0
+  #gma_mediation_unity: ^1.1.0
 #  gma_mediation_pangle: ^1.1.0
-  gma_mediation_liftoffmonetize: ^1.0.0
+  #gma_mediation_liftoffmonetize: ^1.0.0
 #  gma_mediation_ironsource: ^1.0.0
-  gma_mediation_inmobi: ^1.0.0
+  #gma_mediation_inmobi: ^1.0.0
 #  gma_mediation_mintegral: ^1.0.0
-  gma_mediation_dtexchange: ^1.0.0
+  #gma_mediation_dtexchange: ^1.0.0
 
 
 
