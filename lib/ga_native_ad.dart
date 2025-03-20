@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:ga_native_ad/models/native_styles.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 export 'ga_interstitial_ad.dart';
@@ -35,6 +36,7 @@ class GANativeAd {
     AdEventCallback? onAdClosed,
     AdEventCallback? onAdWillDismissScreen,
     OnPaidEventCallback? onPaidEvent,
+    NativeStyles? style,
   }) {
     _nativeAd = NativeAd(
       adUnitId: adUnitId,
@@ -50,6 +52,10 @@ class GANativeAd {
         onAdWillDismissScreen: onAdWillDismissScreen,
         onPaidEvent: onPaidEvent,
       ),
+      customOptions: {
+        'headlineColor': style?.headlineColor ?? "#FF000000",
+        'bodyColor': style?.bodyColor ?? "#FFAAAAAA",
+      },
     );
 
     _nativeAd.load();
@@ -65,6 +71,7 @@ class GANativeAd {
     AdEventCallback? onAdClosed,
     AdEventCallback? onAdWillDismissScreen,
     OnPaidEventCallback? onPaidEvent,
+    NativeStyles? style,
   }) {
     _mediumNativeAd = NativeAd(
       adUnitId: adUnitId,
@@ -80,6 +87,10 @@ class GANativeAd {
         onAdWillDismissScreen: onAdWillDismissScreen,
         onPaidEvent: onPaidEvent,
       ),
+      customOptions: {
+        'headlineColor': style?.headlineColor ?? "#FF000000",
+        'bodyColor': style?.bodyColor ?? "#FFAAAAAA",
+      },
     );
     _mediumNativeAd.load();
   }

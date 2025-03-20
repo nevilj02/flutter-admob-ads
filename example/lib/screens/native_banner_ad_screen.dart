@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ga_native_ad/ga_native_ad.dart';
+import 'package:ga_native_ad/models/native_styles.dart';
 
 class NativeBannerAdScreen extends StatefulWidget {
   const NativeBannerAdScreen({Key? key}) : super(key: key);
@@ -31,6 +32,10 @@ class _NativeBannerAdScreenState extends State<NativeBannerAdScreen> {
         ad.dispose();
         print('Ad load failed (code=${error.code} message=${error.message})');
       },
+      style: NativeStyles(
+        headlineColor: "#FFFF0000",
+        bodyColor: "#FF0000FF",
+      )
     );
   }
 
