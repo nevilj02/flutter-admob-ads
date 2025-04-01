@@ -10,7 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
   plugin_platform_interface: ^2.1.8
-  google_mobile_ads: ^5.2.0
+  #google_mobile_ads: ^5.2.0
+  google_mobile_ads: ^5.3.1
   gma_mediation_meta: ^1.0.1
   #gma_mediation_applovin: ^1.2.0
   #gma_mediation_unity: ^1.1.0
